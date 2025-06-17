@@ -25,18 +25,19 @@
 
 
 int main(){
-   std::vector<std::string> str = {"eat", "tea", "tan", "ate", "nat", "bat", "bet"};
-   std::unordered_map<std::string, std::vector<std::string>> res;
+   std::vector<std::string> str = {"eat", "ate", "tea", "nat", "tan", "bat"};
+   std::unordered_map<int, std::vector<std::string>> res;
    for (const auto& s : str) {
       std::vector<int> count(26, 0);
       for (char c : s) {
           count[c - 'a']++;
       }
-      std::string key = std::to_string(count[0]);
+      int key = (count[0]);
       for (int i = 1; i < 26; ++i) {
-          key += ',' + std::to_string(count[i]);
+          key += (count[i]);
       }
       res[key].push_back(s);
+      std::cout << key << std::endl;
   }
    std::vector<std::vector<std::string>> result;
    for (const auto & i : res){
